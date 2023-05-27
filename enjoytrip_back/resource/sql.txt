@@ -1,0 +1,18 @@
+CREATE TABLE `enjoytrip`.`board` (
+  `article_no` INT NOT NULL AUTO_INCREMENT,
+  `user_id` VARCHAR(16) NULL DEFAULT NULL,
+  `subject` VARCHAR(100) NULL DEFAULT NULL,
+  `content` VARCHAR(2000) NULL DEFAULT NULL,
+  `hit` INT NULL DEFAULT 0,
+  `register_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`article_no`)
+);
+
+CREATE TABLE `user` (
+	  `user_id` varchar(15) NOT NULL,
+	  `user_pwd` varchar(20) NOT NULL,
+	  `user_name` varchar(10000) DEFAULT NULL,
+	  `email_id` varchar(45) NOT NULL,
+	  `eamil_domain` varchar(45) NOT NULL,
+  PRIMARY KEY (`user_id`)
+);

@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS `enjoytrip`.`board` (
+  `article_no` INT NOT NULL AUTO_INCREMENT,
+  `user_id` VARCHAR(16) NULL DEFAULT NULL,
+  `subject` VARCHAR(100) NULL DEFAULT NULL,
+  `content` VARCHAR(2000) NULL DEFAULT NULL,
+  `hit` INT NULL DEFAULT 0,
+  `register_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`article_no`),
+  INDEX `board_to_members_user_id_fk` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `board_to_members_user_id_fk`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `ssafyweb`.`members` (`user_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `enjoytrip`.`user` (
+  `user_id` VARCHAR(16) NOT NULL,
+  `user_pwd` VARCHAR(16) NOT NULL,
+  `user_name` VARCHAR(20) NOT NULL,
+  `email_id` VARCHAR(20) NULL DEFAULT NULL,
+  `email_domain` VARCHAR(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`user_id`));
